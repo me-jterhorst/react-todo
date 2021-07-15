@@ -9,3 +9,66 @@
 .App {
   text-align: center;
 }
+
+.top {
+  background: slategray;
+
+  height: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#inputfield {
+  padding: 0.75em 1.25em;
+  border: none;
+  margin-right: 0.75em;
+}
+
+button[type="submit"] {
+  background: lightblue;
+  font-weight: 600;
+}
+
+main,
+ul {
+  width: 100%;
+}
+
+.item {
+  list-style: none;
+  border: 1px solid grey;
+  margin: 1em 1em 0.5em;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.btn {
+  padding: 0.75em 1.25em;
+  color: white;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  background: grey;
+}
+
+.btn--delete {
+  background: salmon;
+}
+
+.btn--complete {
+  background: seagreen;
+}
+
+.btn:hover,
+.btn:active {
+  opacity: 0.75;
+}
+
+.complete {
+  color: seagreen;
+  text-decoration: line-through;
+}
