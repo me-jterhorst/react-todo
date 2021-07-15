@@ -1,0 +1,32 @@
+.btn {
+  padding: 0.75em 1.25em;
+  color: white;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  background: grey;
+  margin-left: 1em;
+}
+
+.btn:hover,
+.btn:active {
+  opacity: 0.75;
+}
+
+.btn--delete {
+  background: salmon;
+  margin-left: auto;
+}
+
+.btn--complete {
+  background: seagreen;
+}
+
+.btn--edit {
+  background: slategrey;
+}
+
+.complete {
+  color: seagreen;
+  text-decoration: line-through;
+}

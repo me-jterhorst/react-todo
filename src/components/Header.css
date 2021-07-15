@@ -1,0 +1,19 @@
+.top {
+  background: slategray;
+
+  height: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#inputfield {
+  padding: 0.75em 1.25em;
+  border: none;
+}
+
+button[type="submit"] {
+  background: lightblue;
+  font-weight: 600;
+}
