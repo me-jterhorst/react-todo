@@ -72,3 +72,13 @@ ul {
   color: seagreen;
   text-decoration: line-through;
 }
+
+.pendingItems {
+  background: hsla(28, 87%, 67%, 0.35);
+  padding: 1em;
+}
+
+.doneItems {
+  background: hsla(146, 50%, 36%, 0.25);
+  padding: 1em;
+}

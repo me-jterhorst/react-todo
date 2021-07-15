@@ -46,26 +46,62 @@ function App() {
   function TodoList({ todos }) {
     let obj = todos.map((todo, index) => (todo = { ...todo, id: index }));
 
+    console.log(obj);
+    let doneTodos = obj.filter((todo) => (todo = todo.isCompleted === true));
+    console.log("Done");
+    console.log(doneTodos);
+
+    let pendingTodos = obj.filter(
+      (todo) => (todo = todo.isCompleted === false)
+    );
+    console.log("Pending");
+    console.log(pendingTodos);
     return (
-      <ul>
-        {obj.map((item, index) => {
-          let listItem = (
-            <li key={index} id={index} className="item">
-              <button className="btn btn--delete" onClick={inbetweenDelete}>
-                X
-              </button>
-              <p className={item.isCompleted ? "complete" : ""}>{item.name}</p>
-              <button
-                className={item.isCompleted ? "btn" : "btn btn--complete"}
-                onClick={inbetweenComplete}
-              >
-                {item.isCompleted ? "Undo" : "Done"}
-              </button>
-            </li>
-          );
-          return listItem;
-        })}
-      </ul>
+      <main>
+        <ul className="pendingItems">
+          {pendingTodos.map((item, index) => {
+            let listItem = (
+              <li key={index} id={index} className="item">
+                <button className="btn btn--delete" onClick={inbetweenDelete}>
+                  X
+                </button>
+                <p className={item.isCompleted ? "complete" : ""}>
+                  {item.name}
+                </p>
+                <button
+                  className={item.isCompleted ? "btn" : "btn btn--complete"}
+                  onClick={inbetweenComplete}
+                >
+                  {item.isCompleted ? "Undo" : "Done"}
+                </button>
+              </li>
+            );
+            return listItem;
+          })}
+        </ul>
+
+        <ul className="doneItems">
+          {doneTodos.map((item, index) => {
+            let listItem = (
+              <li key={index} id={index} className="item">
+                <button className="btn btn--delete" onClick={inbetweenDelete}>
+                  X
+                </button>
+                <p className={item.isCompleted ? "complete" : ""}>
+                  {item.name}
+                </p>
+                <button
+                  className={item.isCompleted ? "btn" : "btn btn--complete"}
+                  onClick={inbetweenComplete}
+                >
+                  {item.isCompleted ? "Undo" : "Done"}
+                </button>
+              </li>
+            );
+            return listItem;
+          })}
+        </ul>
+      </main>
     );
   }
 
