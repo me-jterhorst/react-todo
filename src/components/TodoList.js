@@ -56,6 +56,7 @@ function ListItem({ id, className, text, status, btnFunction }) {
         purpose="btn--delete"
         status={status}
         onClick={btnFunction.delete}
+        data={id}
       />
 
       <ListBtn

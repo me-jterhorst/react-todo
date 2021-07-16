@@ -10,7 +10,21 @@ function App() {
   // console.groupEnd();
   // DUMB/ Bridge FUNCTION
   function handleSubmit(event) {
-    setInput(event, entries, setEntries);
+    event.preventDefault();
+
+    const inputValue = event.target.inputfield.value;
+
+    let newData = {
+      id: Date.now(),
+      txtContent: inputValue,
+      isCompleted: false,
+    };
+
+    const newTodos = [...entries, newData];
+
+    inputValue ? setEntries(newTodos) : alert("No User Input");
+
+    event.target.reset();
   }
 
   function handleDelete(event) {
@@ -39,34 +53,16 @@ function App() {
 
 // ========================================================= OUTSIDE
 
-/*GET DATA FROM INPUT */
-function setInput(event, storedData, setEntries) {
-  event.preventDefault();
-
-  const inputValue = event.target.inputfield.value;
-
-  let newData = {
-    id: Date.now(),
-    txtContent: inputValue,
-    isCompleted: false,
-  };
-
-  const newTodos = [...storedData, newData];
-
-  inputValue ? setEntries(newTodos) : alert("No User Input");
-
-  event.target.reset();
-}
-
 /*DELETE LINE */
 function deleteItem(event, storedData, setEntries) {
+  const clickedItem = Number(event.target.ariaLabel);
   console.group("delete Button");
-  console.log(event.target);
+  console.log(clickedItem);
   console.log(storedData);
   console.groupEnd();
 
   let cleanedUpArr = storedData.filter((item) => {
-    return item.id !== 1626430480207;
+    return item.id !== clickedItem;
   });
 
   setEntries([...cleanedUpArr]);

@@ -4,9 +4,10 @@ export function ListText({ content, pendingState }) {
   return <p className={pendingState ? "complete" : ""}>{content}</p>;
 }
 
-export function ListBtn({ className, purpose, onClick, status }) {
+export function ListBtn({ className, purpose, onClick, status, data }) {
   return (
     <button
+      aria-label={data}
       className={`${className} ${
         purpose === "btn--delete"
           ? "btn--delete"
