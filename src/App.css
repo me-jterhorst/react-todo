@@ -7,10 +7,15 @@
 }
 
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 main,
 ul {
   width: 100%;
+}
+
+h2 {
+  margin-left: 1em;
+  padding: 0.5em;
 }

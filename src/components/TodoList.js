@@ -8,49 +8,56 @@ export default function TodoList({
   completion,
   editorial,
 }) {
-  let completedItems = dataArr.filter((item) => item.isCompleted);
-  let unfinishedItems = dataArr.filter((item) => !item.isCompleted);
+  const finishedItems = dataArr.filter((item) => item.isCompleted);
+  const unfinishedItems = dataArr.filter((item) => !item.isCompleted);
   console.group("TodoList");
   console.log(dataArr);
-  console.log(completedItems);
-  console.log(unfinishedItems);
   console.groupEnd();
 
-  // Weiche stellen der Status varriiert
-  let status;
-  // ============================
-
   return (
-    <List
-      className={className}
-      object={dataArr}
-      status={status}
-      removal={removal}
-      completion={completion}
-      editorial={editorial}
-    />
+    <main>
+      <List
+        className={className}
+        object={unfinishedItems}
+        status={false}
+        removal={removal}
+        completion={completion}
+        editorial={editorial}
+      />
+      <List
+        className={className}
+        object={finishedItems}
+        status={true}
+        removal={removal}
+        completion={completion}
+        editorial={editorial}
+      />
+    </main>
   );
 }
 
 // ========================= UL ELEMENT
 function List({ className, object, status, removal, completion, editorial }) {
   return (
-    <ul className={status ? "doneItems" : "pendingItems"}>
-      {object.map((item, index) => {
-        return (
-          <ListItem
-            id={item.id}
-            key={index}
-            className={className}
-            text={item}
-            status={status}
-            removal={removal}
-            completion={completion}
-            editorial={editorial}
-          />
-        );
-      })}
-    </ul>
+    <section>
+      <h2> {status ? "Pending" : "Completed"}</h2>
+      <ul className={status ? "doneItems" : "pendingItems"}>
+        {object.map((item, index) => {
+          return (
+            <ListItem
+              id={item.id}
+              key={index}
+              className={className}
+              text={item}
+              status={status}
+              removal={removal}
+              completion={completion}
+              editorial={editorial}
+            />
+          );
+        })}
+      </ul>
+    </section>
   );
 }
 
