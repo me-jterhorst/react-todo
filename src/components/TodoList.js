@@ -8,13 +8,18 @@ export default function TodoList({
   completion,
   editorial,
 }) {
+  let completedItems = dataArr.filter((item) => item.isCompleted);
+  let unfinishedItems = dataArr.filter((item) => !item.isCompleted);
   console.group("TodoList");
   console.log(dataArr);
+  console.log(completedItems);
+  console.log(unfinishedItems);
   console.groupEnd();
 
   // Weiche stellen der Status varriiert
-  let status = true;
+  let status;
   // ============================
+
   return (
     <List
       className={className}

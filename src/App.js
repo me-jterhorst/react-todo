@@ -31,7 +31,7 @@ function App() {
     deleteItem(event, data, entries, setEntries);
   }
   function handleComplete(event, data) {
-    console.log("complete from App");
+    completeItem(event, data, entries, setEntries);
   }
   function handleEdit(event, data) {
     console.log("edit from App");
@@ -56,15 +56,32 @@ function App() {
 /*DELETE LINE */
 function deleteItem(event, data, storedData, setEntries) {
   const clickedItem = Number(data);
-  console.group("delete Button");
-  console.log(clickedItem);
-  console.log(storedData);
-  console.groupEnd();
+  // console.group("delete Button");
+  // console.log(clickedItem);
+  // console.log(storedData);
+  // console.groupEnd();
 
   let cleanedUpArr = storedData.filter((item) => {
     return item.id !== clickedItem;
   });
 
   setEntries([...cleanedUpArr]);
+}
+/*TOGGLE COMPLETE OR INCOMPLETE */
+function completeItem(event, data, storedData, setEntries) {
+  const clickedItem = Number(data);
+  let statusArr = storedData.map((item) => {
+    if (item.id === clickedItem) {
+      item.isCompleted = !item.isCompleted;
+      return item;
+    }
+    return item;
+  });
+
+  setEntries([...statusArr]);
+  // console.group("complete Button");
+  // console.log(clickedItem);
+  // console.log(storedData);
+  // console.groupEnd();
 }
 export default App;
