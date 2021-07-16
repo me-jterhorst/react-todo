@@ -1,32 +1,34 @@
 import "./TodoList.css";
-import { ListText, ListBtn, EditBtn } from "./Buttons";
+import { ListText, ListBtn } from "./Buttons";
 
-export default function TodoList(props) {
+export default function TodoList({
+  className,
+  dataArr,
+  removal,
+  completion,
+  editorial,
+}) {
   console.group("TodoList");
-  console.log(props.dataArr);
+  console.log(dataArr);
   console.groupEnd();
-
-  const buttonFunction = {
-    delete: props.removal,
-    complete: props.complete,
-    edit: props.edit,
-  };
 
   // Weiche stellen der Status varriiert
   let status = true;
   // ============================
   return (
     <List
-      className={props.className}
-      object={props.dataArr}
+      className={className}
+      object={dataArr}
       status={status}
-      btnFunction={buttonFunction}
+      removal={removal}
+      completion={completion}
+      editorial={editorial}
     />
   );
 }
 
 // ========================= UL ELEMENT
-function List({ className, object, status, btnFunction }) {
+function List({ className, object, status, removal, completion, editorial }) {
   return (
     <ul className={status ? "doneItems" : "pendingItems"}>
       {object.map((item, index) => {
@@ -37,7 +39,9 @@ function List({ className, object, status, btnFunction }) {
             className={className}
             text={item}
             status={status}
-            btnFunction={btnFunction}
+            removal={removal}
+            completion={completion}
+            editorial={editorial}
           />
         );
       })}
@@ -46,7 +50,15 @@ function List({ className, object, status, btnFunction }) {
 }
 
 // ========================= LI ELEMENT
-function ListItem({ id, className, text, status, btnFunction }) {
+function ListItem({
+  id,
+  className,
+  text,
+  status,
+  removal,
+  completion,
+  editorial,
+}) {
   const btnClass = "btn";
   return (
     <li id={id} className={className}>
@@ -55,21 +67,23 @@ function ListItem({ id, className, text, status, btnFunction }) {
         className={btnClass}
         purpose="btn--delete"
         status={status}
-        onClick={btnFunction.delete}
         data={id}
+        removal={removal}
       />
 
       <ListBtn
         className={btnClass}
         purpose="btn--complete"
-        onClick={btnFunction.complete}
         status={status}
+        data={id}
+        completion={completion}
       />
 
-      <EditBtn
+      <ListBtn
         className={btnClass}
         purpose="btn--edit"
-        onClick={btnFunction.edit}
+        data={id}
+        editorial={editorial}
       />
     </li>
   );

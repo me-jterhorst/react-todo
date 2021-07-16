@@ -27,13 +27,13 @@ function App() {
     event.target.reset();
   }
 
-  function handleDelete(event) {
-    deleteItem(event, entries, setEntries);
+  function handleDelete(event, data) {
+    deleteItem(event, data, entries, setEntries);
   }
-  function handleComplete(event) {
+  function handleComplete(event, data) {
     console.log("complete from App");
   }
-  function handleEdit(event) {
+  function handleEdit(event, data) {
     console.log("edit from App");
   }
   // ======================================================= ASSEMBLY
@@ -44,8 +44,8 @@ function App() {
         className="item"
         dataArr={entries}
         removal={handleDelete}
-        complete={handleComplete}
-        edit={handleEdit}
+        completion={handleComplete}
+        editorial={handleEdit}
       />
     </div>
   );
@@ -54,8 +54,8 @@ function App() {
 // ========================================================= OUTSIDE
 
 /*DELETE LINE */
-function deleteItem(event, storedData, setEntries) {
-  const clickedItem = Number(event.target.ariaLabel);
+function deleteItem(event, data, storedData, setEntries) {
+  const clickedItem = Number(data);
   console.group("delete Button");
   console.log(clickedItem);
   console.log(storedData);
