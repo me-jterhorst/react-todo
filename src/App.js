@@ -5,6 +5,7 @@ import { useState } from "react";
 
 function App() {
   const [entries, setEntries] = useState([]);
+  const [state, setState] = useState(false);
   // console.group("App.js");
   // console.log(entries);
   // console.groupEnd();
@@ -36,17 +37,30 @@ function App() {
   function handleEdit(event, data) {
     console.log("edit from App");
   }
+
+  function handleCheck(event) {
+    setState(!state);
+  }
+
   // ======================================================= ASSEMBLY
   return (
     <div className="App">
-      <Header className="top" onSubmit={handleSubmit} />
-      <TodoList
-        className="item"
-        dataArr={entries}
-        removal={handleDelete}
-        completion={handleComplete}
-        editorial={handleEdit}
+      <Header
+        className="top"
+        onSubmit={handleSubmit}
+        onClick={handleCheck}
+        state={state}
       />
+      <main>
+        <TodoList
+          className="item"
+          dataArr={entries}
+          removal={handleDelete}
+          completion={handleComplete}
+          editorial={handleEdit}
+          state={state}
+        />
+      </main>
     </div>
   );
 }

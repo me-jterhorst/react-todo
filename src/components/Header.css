@@ -17,3 +17,26 @@ button[type="submit"] {
   background: lightblue;
   font-weight: 600;
 }
+
+.checkToggle {
+  position: fixed;
+  right: 30px;
+  top: 30px;
+}
+
+#check {
+  visibility: hidden;
+  padding: 1em;
+}
+
+label[for="check"] {
+  font-weight: 600;
+  color: slategray;
+  background: yellow;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+}
+
+label[for="check"]:hover {
+  opacity: 0.7;
+}

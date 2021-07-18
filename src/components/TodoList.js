@@ -7,15 +7,18 @@ export default function TodoList({
   removal,
   completion,
   editorial,
+  state,
 }) {
+  // Weiche für dataArr filter
+
   const finishedItems = dataArr.filter((item) => item.isCompleted);
   const unfinishedItems = dataArr.filter((item) => !item.isCompleted);
   console.group("TodoList");
   console.log(dataArr);
   console.groupEnd();
 
-  return (
-    <main>
+  if (state) {
+    return (
       <List
         className={className}
         object={unfinishedItems}
@@ -24,6 +27,9 @@ export default function TodoList({
         completion={completion}
         editorial={editorial}
       />
+    );
+  } else {
+    return (
       <List
         className={className}
         object={finishedItems}
@@ -32,15 +38,15 @@ export default function TodoList({
         completion={completion}
         editorial={editorial}
       />
-    </main>
-  );
+    );
+  }
 }
 
 // ========================= UL ELEMENT
 function List({ className, object, status, removal, completion, editorial }) {
   return (
     <section>
-      <h2> {status ? "Pending" : "Completed"}</h2>
+      <h2> {status ? "Done" : "Pending"}</h2>
       <ul className={status ? "doneItems" : "pendingItems"}>
         {object.map((item, index) => {
           return (

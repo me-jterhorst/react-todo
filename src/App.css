@@ -8,6 +8,7 @@
 
 .App {
   text-align: left;
+  position: relative;
 }
 
 main,
@@ -16,6 +17,9 @@ ul {
 }
 
 h2 {
-  margin-left: 1em;
-  padding: 0.5em;
+  padding: 0.5em 1.5em;
+  color: white;
+  background: hsl(210, 13%, 60%);
+  margin-top: 1em;
+  font-family: "Courier New", Courier, monospace;
 }
