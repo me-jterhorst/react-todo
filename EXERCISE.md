@@ -61,19 +61,18 @@ Chapters 1 to 12 here helps a lot to understand React
 - [Main Concepts of React](https://reactwithhooks.netlify.app/docs/getting-started.html)
   - In chapter 6, they talk about `useEffect`. This is something we didn't learn yet and that's
     not needed for this task. You can skip it.
-    
+
 Other links:
 
 - [Best practices to keep objects and arrays immutable in javascript.](https://dev.to/antonio_pangall/best-practices-to-keep-objects-and-arrays-immutable-in-javascript-3nmm)
 - [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
-- [Recap map() method()](https://neuefische-students.slack.com/archives/G01Q1DL5F41/p1617272650004900) 
+- [Recap map() method()](https://neuefische-students.slack.com/archives/G01Q1DL5F41/p1617272650004900)
 - [Recap of filter() method()](https://neuefische-students.slack.com/archives/G01Q1DL5F41/p1617282521007500)
 
 ## Additional Challanges
+
 If you done with the initial exercises and you want to push yourself, here are some ideas how you can add some features to your app
 
-- Make the todos render in different lists, depending on the `status` of the todo. If the todo is `PENDING` render the todo in the `Pending List`. If the todo is `DONE`, render it in the `Done List`
-- Create a new state for your app for a feature you like (for example create a `Pending | Done` Filter where you display only the `pending` todos or only the  `done` todos. (you may not need the seperate Lists from the challange before anymore. It depends how you want to display things)
 <img width="532" alt="Bildschirmfoto 2021-04-01 um 15 42 02" src="https://user-images.githubusercontent.com/54703643/113302904-d2273500-9300-11eb-9602-236de98183f9.png">
 
 - Create in the todo a button which let you change the name of the todo and save it.

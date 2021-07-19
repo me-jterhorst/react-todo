@@ -24,7 +24,7 @@ function Checkbox({ onClick, state }) {
   return (
     <div className="checkToggle">
       <input type="checkbox" name="check" id="check" onClick={onClick} />
-      <label htmlFor="check">{state ? "Show Done" : "Show Pending"}</label>
+      <label htmlFor="check">{state ? "Show Pending" : "Show Done"}</label>
     </div>
   );
 }

@@ -21,8 +21,8 @@ export default function TodoList({
     return (
       <List
         className={className}
-        object={unfinishedItems}
-        status={false}
+        object={finishedItems}
+        status={true}
         removal={removal}
         completion={completion}
         editorial={editorial}
@@ -32,8 +32,8 @@ export default function TodoList({
     return (
       <List
         className={className}
-        object={finishedItems}
-        status={true}
+        object={unfinishedItems}
+        status={false}
         removal={removal}
         completion={completion}
         editorial={editorial}

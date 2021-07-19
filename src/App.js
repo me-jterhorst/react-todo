@@ -1,6 +1,8 @@
 import "./App.css";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
+import Footer from "./components/Footer";
+
 import { useState } from "react";
 
 function App() {
@@ -42,6 +44,16 @@ function App() {
     setState(!state);
   }
 
+  // function handleSearch(event) {
+  //   const search = entries.filter((item) => {
+  //     const str = "";
+  //   });
+  //   console.group("search");
+  //   console.log(search);
+  //   console.log(event.target.value);
+  //   console.groupEnd();
+  // }
+
   // ======================================================= ASSEMBLY
   return (
     <div className="App">
@@ -61,6 +73,7 @@ function App() {
           state={state}
         />
       </main>
+      <footer>{/* <Footer onChange={handleSearch} /> */}</footer>
     </div>
   );
 }
